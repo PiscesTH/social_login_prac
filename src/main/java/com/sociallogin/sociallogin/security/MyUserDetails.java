@@ -1,7 +1,7 @@
 package com.sociallogin.sociallogin.security;
 
 
-import com.green.greengram4.user.model.UserSigninProcVo;
+import com.sociallogin.sociallogin.entity.User;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,7 +19,7 @@ public class MyUserDetails implements UserDetails, OAuth2User { //요청이 왔�
 
     private MyPrincipal myPrincipal;
     private Map<String, Object> attributes; //OAuth2User의 getAttributes() 오버라이딩 해결 & 없으면 DB 한번 더 호출하는 경우가 생김 ?
-    private UserSigninProcVo userEntity;    //local login -> myPrincipal 만 사용
+    private User userEntity;    //local login -> myPrincipal 만 사용
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {    //권한
