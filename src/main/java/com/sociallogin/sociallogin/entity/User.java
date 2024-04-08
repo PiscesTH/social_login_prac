@@ -9,7 +9,11 @@ import org.hibernate.annotations.ColumnDefault;
 
 @Data
 @Entity
-@Table
+@Table(uniqueConstraints = {
+        @UniqueConstraint(
+                columnNames = {"provider_type", "uid"}
+        )
+})
 public class User {
     @Id
     @Column(columnDefinition = "BIGINT UNSIGNED")
